@@ -1,0 +1,17 @@
+typer[all]
+fastapi[all]
+uvicorn[standard]
+sqlalchemy
+pydantic
+alembic
+security
+python-multipart
+python-settings
+python-jose[cryptography]
+passlib[bcrypt]
+types-python-jose
+types-passlib
+loguru
+redis
+rq
+# psycopg2 psycopg2-binary

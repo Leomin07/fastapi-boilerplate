@@ -14,4 +14,9 @@ types-passlib
 loguru
 redis
 rq
+email-validator
+pydantic-extra-types
+ujson 
+httpx
+pymongo
 # psycopg2 psycopg2-binary

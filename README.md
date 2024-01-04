@@ -1,6 +1,10 @@
-## Pet project
+- Require [Cookiecutter](https://github.com/cookiecutter/cookiecutter)
+- Install cookiecutter
 
-1. Docs
 ```
-http://localhost:8000/docs#/
+pip install cookiecutter
+```
+- Clone project
+```
+cookiecutter git@github.com:Leomin07/fastapi-boilerplate.git
 ```

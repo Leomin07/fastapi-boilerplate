@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings
 
 
 class Setting(BaseSettings):
-    APP_NAME: str = "Fastapi"
+    APP_NAME: str = "{{cookiecutter.project_name}}"
     APP_V1_STR: str = "/api/v1"
     # e.g:  [ "http://localhost","http://localhost:8000",]
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []

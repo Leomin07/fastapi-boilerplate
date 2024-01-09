@@ -26,3 +26,22 @@ class ErrorMessage:
     Token_Expire = "Token_Expire"
     User_Not_Found = "User_Not_Found"
     Password_Not_Match = "Password_Not_Match"
+    Member_Not_Found = "Member_Not_Found"
+    USERNAME_ALREADY = "USERNAME_ALREADY"
+
+
+class RoleMember:
+    SUPPER_ADMIN = 1
+    ADMIN = 2
+    MEMBER = 3
+
+
+class Gender:
+    MALE = 1
+    FEMALE = 2
+    ALL = 3
+
+
+class Environment:
+    DEVELOPMENT = "development"
+    PRODUCTION = "production"

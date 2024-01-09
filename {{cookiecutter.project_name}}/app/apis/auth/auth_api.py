@@ -1,15 +1,16 @@
+from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
-
+from app.apis.deps import SessionDep
 from app.db.init_db import get_db
-from app.modules.auth import auth_service
-from app.modules.auth.auth_sche import (
-    login_schema,
+
+from app.apis.auth import auth_service
+from app.apis.auth.auth_schema import (
     refresh_token_schema,
     register_schema,
 )
 
-# from app.core import security
 
 router = APIRouter()
 
@@ -21,10 +22,9 @@ def register(params: register_schema, session: Session = Depends(get_db)):
 
 @router.post("/login", status_code=status.HTTP_200_OK)
 def login(
-    params: login_schema,
-    session: Session = Depends(get_db),
+    session: SessionDep, form_data: Annotated[OAuth2PasswordRequestForm, Depends()]
 ):
-    return auth_service.login(session, params)
+    return auth_service.login(session, form_data)
 
 
 @router.post("/refresh-token", status_code=status.HTTP_200_OK)

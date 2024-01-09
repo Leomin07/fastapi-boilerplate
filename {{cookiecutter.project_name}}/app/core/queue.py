@@ -7,8 +7,8 @@ rq worker --with-scheduler
 from redis import Redis
 from rq import Queue
 
-from app.core.config import setting
+from app.core import config
 
-redis_conn = Redis(host=setting.REDIS_HOST, port=setting.REDIS_PORT)
+redis_conn = Redis(host=config.REDIS_HOST, port=config.REDIS_PORT)
 
 queue = Queue(connection=redis_conn)

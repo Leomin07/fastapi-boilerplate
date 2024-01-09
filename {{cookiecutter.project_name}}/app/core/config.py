@@ -1,23 +1,23 @@
-from typing import List
+import os
 
-from pydantic import AnyHttpUrl
-from pydantic_settings import BaseSettings
+from dotenv import load_dotenv
 
+load_dotenv()
 
-class Setting(BaseSettings):
-    APP_NAME: str = "{{cookiecutter.project_name}}"
-    APP_V1_STR: str = "/api/v1"
-    # e.g:  [ "http://localhost","http://localhost:8000",]
-    BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
-    DATABASE_URL: str = "postgresql://postgres:123@localhost/fastapi"
-    PORT: int = 8000
-    # openssl rand -hex 32
-    SECRET_KEY: str = "7b0d6d7aaed1d6f300533fd8448d54495a1d3ec3b362e95c7e0c62c7c88d69e8"
-    ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 10
-    REDIS_URL: str = "redis://localhost:6379"
-    REDIS_HOST: str = "localhost"
-    REDIS_PORT: int = 6379
-
-
-setting = Setting()
+ENV = str(os.getenv("ENV"))
+APP_NAME = str(os.getenv("APP_NAME"))
+APP_V1_STR = str(os.getenv("APP_V1_STR"))
+# e.g ["https://localhost:8000"]
+BACKEND_CORS_ORIGINS = os.getenv("BACKEND_CORS_ORIGINS")
+PORT = os.getenv("PORT")
+# openssl rand -hex 32
+SECRET_KEY = str(os.getenv("SECRET_KEY"))
+ALGORITHM = str(os.getenv("ALGORITHM"))
+ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
+REFRESH_TOKEN_EXPIRE_MINUTES = int(os.getenv("REFRESH_TOKEN_EXPIRE_MINUTES"))
+REDIS_URL = str(os.getenv("REDIS_URL"))
+REDIS_HOST = str(os.getenv("REDIS_HOST"))
+REDIS_PORT = int(os.getenv("REDIS_PORT"))
+PG_DATABASE_NAME = str(os.getenv("PG_DATABASE_NAME"))
+PG_URL = str(os.getenv("PG_URL"))
+CACHE_TTL = int(os.getenv("CACHE_TTL"))
